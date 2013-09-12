@@ -3,6 +3,8 @@
 import sys
 import os
 try:
+    import ujson as json
+except ImportError:
     import json
 except ImportError:
     import simplejson as json
