@@ -12,8 +12,16 @@ except ImportError:
 sys.path.insert(0, "../API")
 import fp
 
+def load_json(jfile):
+
+    s = ''
+    with open(jfile, 'r') as f:
+        for line in f:
+            s = s + unicode(line, errors='replace')
+    return json.loads(s)
+
 def parse_json_dump(jfile):
-    codes = json.load(open(jfile))
+    codes = load_json(jfile)
 
     bigeval = {}
     fullcodes = []
